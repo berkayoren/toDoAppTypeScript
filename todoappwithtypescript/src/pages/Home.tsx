@@ -3,16 +3,15 @@ import React, { useEffect, useState } from "react";
 import InputForm from "../components/InputForm";
 import TodoList from "../components/TodoList";
 
-const url = "https://6351827ddfe45bbd55c22952.mockapi.io/todos";
-
-type AddFn = (text: string) => void;
+const url = "https://63878fa2d9b24b1be3f43d73.mockapi.io/todos";
 
 const Home = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
 
   const getTodos = async () => {
     try {
-      const { data } = await axios.get(url);
+      const { data } = await axios.get<TodoType[]>(url);
+      console.log(data);
       setTodos(data);
     } catch (error) {
       console.log(error);
@@ -25,7 +24,7 @@ const Home = () => {
       isDone: false,
     };
     try {
-      await axios.post(url);
+      await axios.post(url, newTodo);
       getTodos();
     } catch (error) {
       console.log(error);
@@ -38,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="main">
-      <InputForm />
+      <InputForm addTodo={addTodo} />
       <TodoList todos={todos} />
     </div>
   );

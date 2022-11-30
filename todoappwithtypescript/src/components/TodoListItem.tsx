@@ -6,7 +6,11 @@ interface IListItem {
 const TodoListItem: React.FC<IListItem> = ({ item }) => {
   return (
     <li>
-      {item.isDone ? <p className="checked">{item.task} </p> : <p> Todo </p>}
+      {item.isDone ? (
+        <p className="checked">{item.task}</p>
+      ) : (
+        <p>{item.task}</p>
+      )}
       <span className="task-icons">✖️</span>
     </li>
   );
