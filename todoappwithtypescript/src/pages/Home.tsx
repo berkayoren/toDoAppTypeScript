@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import InputForm from "../components/InputForm";
 import TodoList from "../components/TodoList";
 
-const url = "https://63878fa2d9b24b1be3f43d73.mockapi.io/todos";
+const url = "https://6351827ddfe45bbd55c22952.mockapi.io/todos";
 
 const Home = () => {
   const [todos, setTodos] = useState<TodoType[]>([]);
